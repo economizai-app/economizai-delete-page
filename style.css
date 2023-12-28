@@ -39,6 +39,10 @@ li {
   padding: 0 2rem;
 }
 
+.right {
+  border-left: solid white 1px;
+}
+
 .formulario {
   margin: 3rem;
   display: flex;
