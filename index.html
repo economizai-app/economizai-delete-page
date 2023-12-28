@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+    <title>Excluir minha conta</title>
+</head>
+<body>
+    <header>
+        <picture>
+            <img src="resources/banner2.png" alt="">
+        </picture>
+    </header>
+    <main>
+        <div class="dados-app">
+            <p>App: economizaí</p>
+            <p>Desenvolvedor: Marcus Vinícius Santana Araújo</p>
+        </div>
+        <div>
+            <div class="steps-title"">
+                <h1>Exclusão da conta e dados economizaí</h3>
+            </div>
+            <div class="steps">
+                <p style="font-weight:bold;">1 - Passo-a-passo para exclusão da sua conta e dos seus dados</p>
+                <p>Você pode excluir sua conta aqui mesmo ou dentro do app</p>
+                <div class="container">
+                    <div class="left"">
+                        <p>Neste site:</p>
+                        <ol>
+                            <li>Preencha o primeiro campo com o seu nome.</li>
+                            <li>Preencha o segundo campo com o endereço de e-mail que você utilizou para se cadastrar no app.</li>
+                            <li>Preencha o tercerio campo com o(s) motivo(s) de exclusão da conta.</li>
+                        </ol>
+                    </div>
+                    <div class="right"">
+                        <p>No app:</p>
+                        <ol>
+                            <li>Clique na foto de perfil na parte superior da tela do app.</li>
+                            <li>Clique em "Excluir conta".</li>
+                            <li>Confirme em "Excluir" para excluir a conta e todos os seus dados.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <p style="font-weight:bold;">2 - Quais dados serão excluídos?</p>
+            <ul>
+                <li>Todos os seus dados pessoais que você forneceu ao app: nome, idade, telefone, cpf, email, sexo</li>
+                <li>Sua conta registrada em nosso banco de dados</li>
+            </ul>
+        </div>
+        <form>
+            <div class="formulario">
+                <label for="username">Seu nome</label>
+                <input type="text" id = "username">
+                <label for="user-email">Seu e-mail</label>
+                <input type="email" name="" id="user-email">
+                <label for="username">Motivo(s) de exclusão da conta</label>
+                <textarea id="reason"></textarea>
+                <input type="button" value="Enviar" id="btn" onclick="submitForm()">
+            </div>
+        </form>
+    </main>
+
+    <script> 
+
+        function submitForm() {
+            
+            var name = document.getElementById("username").value;
+            var email = document.getElementById("user-email").value;
+            var motivos = document.getElementById("reason").value;
+
+            var subject = "Exclusão permanente de conta"
+
+            var body = "Olá, gostaria de solicitar a exclusão da minha conta, e de todos os dados relacionados a ela, da base de dados da economizaí" +
+                    "\nMeus dados: " +
+                    "\nNome: " + name +
+                    "\nEmail: " + email +
+                    "\nMotivo(s) de exclusão da conta: " + (motivos == "" ? "Motivo(s) não especificado(s)" : motivos);
+
+            var emailLink = 'mailto:economizai.app@gmail.com?subject=' + subject + '&body=' + body;
+
+            window.location.href = emailLink;
+
+            window.open(emailLink, '_blank');
+
+
+            console.log(subject + "\n\n" + body)
+        }
+
+    </script>
+</body>
+</html>
